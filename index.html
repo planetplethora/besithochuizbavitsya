@@ -2170,64 +2170,361 @@
     }
 
   
-    /* Remove extra artificial paper backing: write on the background paper only */
+    /* Mobile fix: keep writing text inside the paper */
+    @media (max-width: 560px) {
+      #s3 .paper-stage {
+        width: 76vw !important;
+        height: 145px !important;
+        margin-top: 12px !important;
+        overflow: hidden !important;
+      }
+
+      #s3 .paper-input {
+        width: 82% !important;
+        min-height: 82px !important;
+        max-height: 92px !important;
+        padding: 8px 4px !important;
+        font-size: 24px !important;
+        line-height: 1.08 !important;
+        overflow: hidden !important;
+        display: block !important;
+        align-self: center !important;
+      }
+
+      #s3 .paper-input::placeholder {
+        font-size: 20px !important;
+        line-height: 1.08 !important;
+        color: rgba(64,41,24,.48) !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      #s3 .paper-stage {
+        height: 135px !important;
+      }
+
+      #s3 .paper-input {
+        font-size: 22px !important;
+        max-height: 82px !important;
+      }
+
+      #s3 .paper-input::placeholder {
+        font-size: 18px !important;
+      }
+    }
+
+  
+    /* Remove instruction backing from scene 2 completely */
+    #s3 .write-lead p {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      color: rgba(255, 244, 232, .94) !important;
+      text-shadow: 0 4px 18px rgba(0,0,0,.45) !important;
+    }
+
+    #s3 .write-lead {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+    }
+
+  
+    /* Remove the extra paper/white block: write directly on the background parchment */
     #s3 .paper-stage {
       background: transparent !important;
-      clip-path: none !important;
+      background-color: transparent !important;
       box-shadow: none !important;
+      clip-path: none !important;
       transform: none !important;
       overflow: visible !important;
-      width: min(720px, 92vw) !important;
-      height: min(44vh, 430px) !important;
-      margin-top: 0 !important;
+      border: none !important;
+      outline: none !important;
+      width: min(620px, 78vw) !important;
+      height: min(210px, 25vh) !important;
+      margin: 26px auto 8px !important;
       display: grid !important;
       place-items: center !important;
     }
 
-    #s3 .paper-stage::before {
+    #s3 .paper-stage::before,
+    #s3 .paper-stage::after {
       display: none !important;
       content: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
     }
 
-    #s3 .paper-input {
+    #s3 textarea#phraseInput.paper-input {
+      -webkit-appearance: none !important;
+      appearance: none !important;
       background: transparent !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
       border: none !important;
       outline: none !important;
-      box-shadow: none !important;
+      resize: none !important;
+      overflow: hidden !important;
+      width: 100% !important;
+      min-height: 120px !important;
+      max-height: 150px !important;
+      padding: 18px 24px !important;
       color: #2f1d10 !important;
       text-align: center !important;
-      width: min(430px, 66vw) !important;
-      min-height: 120px !important;
-      max-height: 160px !important;
-      resize: none !important;
-      overflow: auto !important;
-      padding: 16px 8px !important;
-      font: italic clamp(28px, 4.2vw, 46px)/1.12 Georgia, "Times New Roman", serif !important;
+      font: italic clamp(30px, 4.2vw, 46px)/1.15 Georgia, "Times New Roman", serif !important;
       text-shadow: 0 1px 0 rgba(255,255,255,.18) !important;
-      transform: translateY(10px) !important;
+      transform: none !important;
     }
 
-    #s3 .paper-input::placeholder {
-      color: rgba(64,41,24,.48) !important;
+    #s3 textarea#phraseInput.paper-input::placeholder {
+      color: rgba(64,41,24,.44) !important;
       opacity: 1 !important;
-      font: italic clamp(22px, 3.6vw, 34px)/1.18 Georgia, "Times New Roman", serif !important;
+      font: italic clamp(22px, 3.4vw, 36px)/1.15 Georgia, "Times New Roman", serif !important;
+    }
+
+    #s3 textarea#phraseInput.paper-input:focus {
+      background: transparent !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      outline: none !important;
     }
 
     @media (max-width: 560px) {
       #s3 .paper-stage {
-        height: min(34vh, 310px) !important;
+        width: 72vw !important;
+        height: 135px !important;
+        margin-top: 12px !important;
       }
 
-      #s3 .paper-input {
-        width: 68vw !important;
-        min-height: 92px !important;
-        max-height: 120px !important;
-        font-size: 28px !important;
-        transform: translateY(6px) !important;
+      #s3 textarea#phraseInput.paper-input {
+        min-height: 96px !important;
+        max-height: 108px !important;
+        padding: 8px 6px !important;
+        font-size: 23px !important;
+        line-height: 1.08 !important;
       }
 
-      #s3 .paper-input::placeholder {
-        font-size: 22px !important;
+      #s3 textarea#phraseInput.paper-input::placeholder {
+        font-size: 18px !important;
+        line-height: 1.08 !important;
+      }
+    }
+
+    @media (min-width: 900px) {
+      #s3 .paper-stage {
+        width: min(720px, 56vw) !important;
+        height: min(235px, 28vh) !important;
+        margin-top: 30px !important;
+      }
+    }
+
+  
+    /* Safe text zone inside the parchment (guided by the white square reference) */
+    #s3 .paper-stage {
+      position: relative !important;
+      width: min(720px, 78vw) !important;
+      height: min(260px, 30vh) !important;
+      margin: 26px auto 8px !important;
+      display: grid !important;
+      place-items: center !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      outline: none !important;
+      overflow: visible !important;
+    }
+
+    #s3 .paper-stage::before,
+    #s3 .paper-stage::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    /* This is the invisible writing area.
+       It matches the "white square" bounds, but is not drawn on the site. */
+    #s3 textarea#phraseInput.paper-input {
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      outline: none !important;
+      resize: none !important;
+      overflow: hidden !important;
+
+      width: min(520px, 61vw) !important;
+      min-height: 118px !important;
+      max-height: 118px !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+
+      display: block !important;
+      align-self: center !important;
+      justify-self: center !important;
+
+      color: #2f1d10 !important;
+      text-align: center !important;
+      font: italic clamp(30px, 4vw, 42px)/1.15 Georgia, "Times New Roman", serif !important;
+      text-shadow: 0 1px 0 rgba(255,255,255,.16) !important;
+      transform: none !important;
+    }
+
+    #s3 textarea#phraseInput.paper-input::placeholder {
+      color: rgba(64,41,24,.46) !important;
+      opacity: 1 !important;
+      font: italic clamp(20px, 2.8vw, 30px)/1.16 Georgia, "Times New Roman", serif !important;
+      text-align: center !important;
+    }
+
+    #s3 textarea#phraseInput.paper-input:focus {
+      background: transparent !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      outline: none !important;
+    }
+
+    @media (max-width: 560px) {
+      #s3 .paper-stage {
+        width: 74vw !important;
+        height: 150px !important;
+        margin-top: 10px !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input {
+        width: 58vw !important;
+        min-height: 78px !important;
+        max-height: 78px !important;
+        font-size: 23px !important;
+        line-height: 1.08 !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input::placeholder {
+        font-size: 17px !important;
+        line-height: 1.08 !important;
+      }
+    }
+
+    @media (min-width: 900px) {
+      #s3 .paper-stage {
+        width: min(760px, 58vw) !important;
+        height: min(290px, 34vh) !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input {
+        width: min(560px, 44vw) !important;
+        min-height: 126px !important;
+        max-height: 126px !important;
+      }
+    }
+
+  
+    /* ===== Fix 1: darker edges on burn scene / no visible image borders ===== */
+    #s4,
+    #s4 .bg,
+    #s4 .overlay,
+    #s4 .scene-bg {
+      background-color: #080402 !important;
+    }
+
+    #s4 .bg,
+    #s4 .scene-bg {
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      box-shadow: none !important;
+    }
+
+    /* Extra dark feather on sides so paper scene blends into background */
+    #s4 .overlay {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,140,50,.06) 0 16%, rgba(14,8,5,.22) 34%, rgba(7,4,2,.56) 70%, rgba(3,2,1,.88) 100%),
+        linear-gradient(90deg, rgba(3,2,1,.95) 0%, rgba(3,2,1,.55) 9%, rgba(3,2,1,0) 18%, rgba(3,2,1,0) 82%, rgba(3,2,1,.55) 91%, rgba(3,2,1,.95) 100%),
+        linear-gradient(180deg, rgba(3,2,1,.52), rgba(3,2,1,.70)) !important;
+    }
+
+    /* On the burning scene, keep the paper and text centered with enough dark room around */
+    #s4 .burn-stage {
+      min-height: 62vh !important;
+    }
+
+    /* Mobile burn scene */
+    @media (max-width: 560px) {
+      #s4 .bg,
+      #s4 .scene-bg {
+        background-size: cover !important;
+        background-position: center center !important;
+      }
+
+      #s4 .overlay {
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255,140,50,.05) 0 14%, rgba(14,8,5,.22) 34%, rgba(7,4,2,.60) 70%, rgba(3,2,1,.90) 100%),
+          linear-gradient(90deg, rgba(3,2,1,.96) 0%, rgba(3,2,1,.60) 10%, rgba(3,2,1,0) 19%, rgba(3,2,1,0) 81%, rgba(3,2,1,.60) 90%, rgba(3,2,1,.96) 100%),
+          linear-gradient(180deg, rgba(3,2,1,.58), rgba(3,2,1,.76)) !important;
+      }
+    }
+
+    /* ===== Fix 2: mobile countdown in one row ===== */
+    @media (max-width: 560px) {
+      #s5 .countdown-grid,
+      #s5 .count-grid,
+      #s5 .timer-grid,
+      #s5 .countdown {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+      }
+
+      #s5 .countdown-grid > *,
+      #s5 .count-grid > *,
+      #s5 .timer-grid > *,
+      #s5 .countdown > * {
+        min-width: 0 !important;
+      }
+
+      #s5 .count-card,
+      #s5 .count-box,
+      #s5 .timer-box,
+      #s5 .countdown-grid .unit,
+      #s5 .countdown-grid .count-item,
+      #s5 .countdown-grid .count-card {
+        padding: 12px 6px !important;
+        border-radius: 18px !important;
+        min-height: auto !important;
+      }
+
+      #s5 .count-value,
+      #s5 .count-box strong,
+      #s5 .timer-box strong,
+      #s5 .unit strong,
+      #s5 .count-item strong {
+        font-size: 18px !important;
+        line-height: 1 !important;
+      }
+
+      #s5 .count-label,
+      #s5 .count-box span,
+      #s5 .timer-box span,
+      #s5 .unit span,
+      #s5 .count-item span {
+        font-size: 10px !important;
+        line-height: 1.1 !important;
+        margin-top: 4px !important;
+      }
+
+      /* Slightly tighter wrapper on mobile so cards fit in one row */
+      #s5 .countdown-wrap,
+      #s5 .count-wrap,
+      #s5 .timer-wrap,
+      #s5 .countdown-panel {
+        width: 100% !important;
       }
     }
 
@@ -2267,7 +2564,7 @@
         </div>
 
         <div class="paper-stage">
-          <textarea id="phraseInput" class="paper-input" maxlength="140" placeholder="Пиши тут, например: паника, тревога, плохое настроение"></textarea>
+          <textarea id="phraseInput" class="paper-input" maxlength="140" placeholder="Пиши тут: паника, тревога, плохое настроение"></textarea>
         </div>
 
         <button class="button" id="burnBtn" disabled>🔥 Сжечь</button>
