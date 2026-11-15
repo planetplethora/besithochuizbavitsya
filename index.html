@@ -2065,6 +2065,172 @@
       }
     }
 
+  
+    /* Write directly on the paper: no duplicate preview */
+    #s3 .ghost-input,
+    #s3 .paper-text-preview {
+      display: none !important;
+    }
+
+    #s3 .paper-stage {
+      position: relative !important;
+      width: min(600px, 82vw) !important;
+      height: min(265px, 30vh) !important;
+      margin: 18px auto 6px !important;
+      display: grid !important;
+      place-items: center !important;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.22), transparent 26%),
+        linear-gradient(135deg, rgba(237,201,163,.96), rgba(219,166,111,.96) 62%, rgba(197,137,85,.96)) !important;
+      clip-path: polygon(1% 7%, 98% 0, 100% 89%, 3% 100%) !important;
+      box-shadow:
+        0 22px 48px rgba(0,0,0,.38),
+        inset 0 0 34px rgba(94,52,23,.10) !important;
+      transform: rotate(-1.5deg) !important;
+      overflow: hidden !important;
+    }
+
+    #s3 .paper-stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(90,50,23,.04) 1px, transparent 1px),
+        linear-gradient(rgba(90,50,23,.025) 1px, transparent 1px);
+      background-size: 34px 34px;
+      opacity: .34;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    #s3 .paper-input {
+      position: relative !important;
+      z-index: 2 !important;
+      display: block !important;
+      width: 86% !important;
+      min-height: 130px !important;
+      max-height: 170px !important;
+      resize: none !important;
+      overflow: auto !important;
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      color: #2f1d10 !important;
+      text-align: center !important;
+      padding: 18px 10px !important;
+      font: italic clamp(28px, 4.3vw, 46px)/1.16 Georgia, "Times New Roman", serif !important;
+      text-shadow: 0 1px 0 rgba(255,255,255,.18) !important;
+      transform: none !important;
+    }
+
+    #s3 .paper-input::placeholder {
+      color: rgba(64,41,24,.48) !important;
+      opacity: 1 !important;
+      font: italic clamp(22px, 3.6vw, 36px)/1.18 Georgia, "Times New Roman", serif !important;
+    }
+
+    #s3 .paper-input:focus {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+
+    @media (max-width: 560px) {
+      #s3 .paper-stage {
+        width: 76vw !important;
+        height: 170px !important;
+        margin-top: 12px !important;
+      }
+
+      #s3 .paper-input {
+        width: 88% !important;
+        min-height: 108px !important;
+        max-height: 126px !important;
+        font-size: 30px !important;
+        line-height: 1.12 !important;
+        padding: 12px 6px !important;
+      }
+
+      #s3 .paper-input::placeholder {
+        font-size: 24px !important;
+      }
+    }
+
+    @media (min-width: 900px) {
+      #s3 .paper-stage {
+        width: min(700px, 58vw) !important;
+        height: min(310px, 36vh) !important;
+      }
+
+      #s3 .paper-input {
+        min-height: 160px !important;
+      }
+    }
+
+  
+    /* Remove extra artificial paper backing: write on the background paper only */
+    #s3 .paper-stage {
+      background: transparent !important;
+      clip-path: none !important;
+      box-shadow: none !important;
+      transform: none !important;
+      overflow: visible !important;
+      width: min(720px, 92vw) !important;
+      height: min(44vh, 430px) !important;
+      margin-top: 0 !important;
+      display: grid !important;
+      place-items: center !important;
+    }
+
+    #s3 .paper-stage::before {
+      display: none !important;
+      content: none !important;
+    }
+
+    #s3 .paper-input {
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      color: #2f1d10 !important;
+      text-align: center !important;
+      width: min(430px, 66vw) !important;
+      min-height: 120px !important;
+      max-height: 160px !important;
+      resize: none !important;
+      overflow: auto !important;
+      padding: 16px 8px !important;
+      font: italic clamp(28px, 4.2vw, 46px)/1.12 Georgia, "Times New Roman", serif !important;
+      text-shadow: 0 1px 0 rgba(255,255,255,.18) !important;
+      transform: translateY(10px) !important;
+    }
+
+    #s3 .paper-input::placeholder {
+      color: rgba(64,41,24,.48) !important;
+      opacity: 1 !important;
+      font: italic clamp(22px, 3.6vw, 34px)/1.18 Georgia, "Times New Roman", serif !important;
+    }
+
+    @media (max-width: 560px) {
+      #s3 .paper-stage {
+        height: min(34vh, 310px) !important;
+      }
+
+      #s3 .paper-input {
+        width: 68vw !important;
+        min-height: 92px !important;
+        max-height: 120px !important;
+        font-size: 28px !important;
+        transform: translateY(6px) !important;
+      }
+
+      #s3 .paper-input::placeholder {
+        font-size: 22px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2100,10 +2266,8 @@
           <p>Пару минут подумайте и напишите всё, что хочется оставить в 2026:<br>то, что бесит, раздражает, тянет назад, забирает силы или слишком долго крутится в голове.</p>
         </div>
 
-        <textarea id="phraseInput" class="ghost-input" maxlength="140" placeholder="Например: паника, тревога, плохое настроение"></textarea>
-
         <div class="paper-stage">
-          <div id="previewText" class="paper-text-preview empty"></div>
+          <textarea id="phraseInput" class="paper-input" maxlength="140" placeholder="Пиши тут, например: паника, тревога, плохое настроение"></textarea>
         </div>
 
         <button class="button" id="burnBtn" disabled>🔥 Сжечь</button>
@@ -2164,7 +2328,7 @@
     const screens = document.querySelectorAll('.screen');
     const embers = document.getElementById('embers');
     const input = document.getElementById('phraseInput');
-    const preview = document.getElementById('previewText');
+    const preview = null;
     const burnBtn = document.getElementById('burnBtn');
     const burnText = document.getElementById('burnText');
     const burnStage = document.getElementById('burnStage');
@@ -2181,8 +2345,6 @@
 
     input.addEventListener('input', () => {
       const val = input.value.trim();
-      preview.textContent = val || '';
-      preview.classList.toggle('empty', !val);
       burnBtn.disabled = !val;
     });
 
