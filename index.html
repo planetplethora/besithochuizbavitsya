@@ -3273,6 +3273,162 @@
       }
     }
 
+  
+    /* ===== FIX: put mobile typing text ON the parchment, not above it ===== */
+    @media (max-width: 560px) {
+      /*
+        The parchment on the background sits lower than the previous input zone.
+        Move the invisible typing zone down into the actual paper area.
+      */
+      body #s3 .paper-stage {
+        width: 64vw !important;
+        max-width: 64vw !important;
+        height: 104px !important;
+        min-height: 104px !important;
+        max-height: 104px !important;
+        margin-top: 204px !important;
+        margin-right: auto !important;
+        margin-bottom: 0 !important;
+        margin-left: auto !important;
+        padding: 0 !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        clip-path: none !important;
+        transform: none !important;
+        overflow: hidden !important;
+        display: grid !important;
+        place-items: center !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input {
+        width: 100% !important;
+        height: 94px !important;
+        min-height: 94px !important;
+        max-height: 94px !important;
+        padding: 0 4px !important;
+        margin: 0 !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        resize: none !important;
+        overflow: hidden !important;
+        color: #2f1d10 !important;
+        text-align: center !important;
+        font: italic 22px/1.08 Georgia, "Times New Roman", serif !important;
+        font-weight: 400 !important;
+        text-shadow: 0 1px 0 rgba(255,255,255,.16) !important;
+        transform: none !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input::placeholder {
+        color: rgba(64,41,24,.42) !important;
+        opacity: 1 !important;
+        font: italic 16px/1.08 Georgia, "Times New Roman", serif !important;
+        font-weight: 400 !important;
+        text-align: center !important;
+      }
+
+      /* Button stays below the paper, smaller and solid */
+      body #s3 #burnBtn.button {
+        width: 220px !important;
+        max-width: 64vw !important;
+        height: 50px !important;
+        min-width: 0 !important;
+        margin-top: 82px !important;
+        margin-right: auto !important;
+        margin-bottom: 0 !important;
+        margin-left: auto !important;
+        padding: 0 18px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 999px !important;
+        color: #fff8ef !important;
+        font: 700 17px/1 Arial, sans-serif !important;
+        background:
+          radial-gradient(circle at 50% 0, rgba(255,235,205,.38), transparent 48%),
+          linear-gradient(180deg, rgba(132,76,45,.96), rgba(184,100,50,1)) !important;
+        border: 1px solid rgba(255,225,190,.82) !important;
+        box-shadow:
+          0 0 0 4px rgba(255,170,90,.10),
+          0 0 28px rgba(255,156,72,.34),
+          inset 0 1px rgba(255,255,255,.32) !important;
+        opacity: 1 !important;
+        filter: none !important;
+      }
+
+      body #s3 #burnBtn.button:disabled {
+        opacity: .52 !important;
+        filter: none !important;
+      }
+
+      /* Burn scene: title should be light, not bold, and separated from user's text */
+      body #s4 .burn-paper-title {
+        top: 39% !important;
+        width: 78vw !important;
+        color: rgba(43,26,15,.58) !important;
+        font-family: Georgia, "Times New Roman", serif !important;
+        font-size: 21px !important;
+        line-height: 1.12 !important;
+        font-weight: 400 !important;
+        font-style: normal !important;
+        opacity: .62 !important;
+        text-shadow: 0 1px 0 rgba(255,255,255,.12) !important;
+      }
+
+      body #s4 .burn-paper-text {
+        top: 56.5% !important;
+        width: 70vw !important;
+        font-size: 32px !important;
+        line-height: 1.08 !important;
+        font-weight: 400 !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      body #s3 .paper-stage {
+        width: 66vw !important;
+        max-width: 66vw !important;
+        height: 96px !important;
+        min-height: 96px !important;
+        max-height: 96px !important;
+        margin-top: 188px !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input {
+        height: 86px !important;
+        min-height: 86px !important;
+        max-height: 86px !important;
+        font-size: 20px !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input::placeholder {
+        font-size: 15px !important;
+      }
+
+      body #s3 #burnBtn.button {
+        width: 210px !important;
+        height: 48px !important;
+        margin-top: 74px !important;
+        font-size: 16px !important;
+      }
+
+      body #s4 .burn-paper-title {
+        font-size: 20px !important;
+        top: 39% !important;
+      }
+
+      body #s4 .burn-paper-text {
+        font-size: 30px !important;
+        top: 57% !important;
+      }
+    }
+
   </style>
 </head>
 <body>
