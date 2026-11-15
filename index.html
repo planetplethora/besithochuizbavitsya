@@ -946,6 +946,1125 @@
       }
     }
 
+  
+    /* Mobile/input scene cleanup: remove bulky instruction plaque */
+    #s3 .write-lead {
+      max-width: 680px !important;
+      margin-bottom: 0 !important;
+      padding: 0 12px !important;
+    }
+
+    #s3 .write-lead p {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      padding: 0 !important;
+      color: rgba(255, 244, 232, .92) !important;
+      text-shadow: 0 4px 18px rgba(0,0,0,.42) !important;
+      font-size: clamp(16px, 2.2vw, 19px) !important;
+      line-height: 1.38 !important;
+      max-width: 620px !important;
+    }
+
+    #s3 .write-wrap {
+      padding-top: clamp(20px, 3vh, 42px) !important;
+      gap: 10px !important;
+      grid-template-rows: auto auto 1fr auto !important;
+    }
+
+    #s3 .ghost-input {
+      margin-top: 6px !important;
+    }
+
+    #s3 .paper-stage {
+      margin-top: 2px !important;
+      height: min(42vh, 410px) !important;
+    }
+
+    @media (max-width: 560px) {
+      #s3 .write-lead h2 {
+        font-size: 40px !important;
+        line-height: .96 !important;
+        margin-bottom: 10px !important;
+      }
+
+      #s3 .write-lead p {
+        font-size: 16px !important;
+        line-height: 1.34 !important;
+      }
+
+      #s3 .ghost-input {
+        min-height: 54px !important;
+        padding: 14px 16px !important;
+        font-size: 16px !important;
+      }
+
+      #s3 .paper-stage {
+        height: min(34vh, 310px) !important;
+      }
+
+      #s3 .button {
+        margin-top: 0 !important;
+      }
+    }
+
+    /* Edge-burn animation on the burn screen */
+    .burn-stage {
+      position: relative !important;
+      overflow: visible !important;
+    }
+
+    .burn-edge {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: min(620px, 84vw);
+      height: min(330px, 44vh);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0;
+      border-radius: 34px;
+      filter: blur(.2px);
+    }
+
+    .burn-edge::before,
+    .burn-edge::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 34px;
+      pointer-events: none;
+    }
+
+    .burn-edge::before {
+      background:
+        linear-gradient(90deg, rgba(255,103,20,0) 0 4%, rgba(255,133,31,.95) 7%, rgba(255,214,111,.70) 10%, transparent 14% 86%, rgba(255,214,111,.70) 90%, rgba(255,133,31,.95) 93%, rgba(255,103,20,0) 96% 100%),
+        linear-gradient(0deg, rgba(255,103,20,0) 0 4%, rgba(255,133,31,.95) 7%, rgba(255,214,111,.70) 10%, transparent 14% 86%, rgba(255,214,111,.70) 90%, rgba(255,133,31,.95) 93%, rgba(255,103,20,0) 96% 100%);
+      mix-blend-mode: screen;
+      filter: blur(6px);
+    }
+
+    .burn-edge::after {
+      box-shadow:
+        0 -10px 26px rgba(255, 118, 27, .84),
+        0 10px 28px rgba(255, 104, 22, .75),
+        -12px 0 28px rgba(255, 118, 27, .75),
+        12px 0 28px rgba(255, 118, 27, .75);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255, 219, 120, .95) 0 5px, rgba(255, 110, 22, .82) 6px 18px, transparent 19px),
+        radial-gradient(circle at 92% 18%, rgba(255, 219, 120, .95) 0 6px, rgba(255, 110, 22, .82) 7px 20px, transparent 21px),
+        radial-gradient(circle at 10% 88%, rgba(255, 219, 120, .90) 0 5px, rgba(255, 110, 22, .78) 6px 18px, transparent 19px),
+        radial-gradient(circle at 90% 86%, rgba(255, 219, 120, .90) 0 5px, rgba(255, 110, 22, .78) 6px 18px, transparent 19px);
+      filter: blur(3px);
+      mix-blend-mode: screen;
+    }
+
+    .burning .burn-edge {
+      opacity: 1;
+      animation: edgeFire 3.5s ease forwards;
+    }
+
+    @keyframes edgeFire {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.86);
+        filter: blur(3px) brightness(.9);
+      }
+      18% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(.98);
+        filter: blur(1px) brightness(1.08);
+      }
+      58% {
+        opacity: .95;
+        transform: translate(-50%, -50%) scale(1.06);
+        filter: blur(2px) brightness(1.18);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.18);
+        filter: blur(9px) brightness(.8);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .burn-edge {
+        width: 78vw;
+        height: 24vh;
+        top: 53%;
+      }
+    }
+
+  
+    /* Make burn-paper background smaller so edge fire is visible */
+    #s4 .bg {
+      background-size: min(650px, 78vw) auto !important;
+      background-position: center center !important;
+      background-color: #0a0503 !important;
+    }
+
+    @media (max-width: 560px) {
+      #s4 .bg {
+        background-size: 78vw auto !important;
+        background-position: center 54% !important;
+      }
+      .burn-paper-title {
+        top: 45% !important;
+      }
+      .burn-paper-text {
+        top: 57% !important;
+      }
+    }
+
+  
+    /* Restore plaque for the instruction text, remove plaque from example input */
+    #s3 .write-lead p {
+      background:
+        radial-gradient(circle at 50% 0, rgba(255,235,205,.20), transparent 50%),
+        linear-gradient(180deg, rgba(132,76,45,.70), rgba(88,48,30,.78)) !important;
+      border: 1px solid rgba(255, 225, 190, .46) !important;
+      color: #fff4e8 !important;
+      box-shadow:
+        0 0 0 4px rgba(255,170,90,.06),
+        0 16px 36px rgba(0,0,0,.18),
+        0 0 28px rgba(255,156,72,.16),
+        inset 0 1px rgba(255,255,255,.16) !important;
+      border-radius: 22px !important;
+      backdrop-filter: blur(10px) !important;
+      max-width: 680px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding: 14px 18px !important;
+      font-size: clamp(16px, 2.2vw, 19px) !important;
+      line-height: 1.38 !important;
+      text-shadow: 0 4px 18px rgba(0,0,0,.22) !important;
+    }
+
+    #s3 .ghost-input {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      width: min(560px, 88vw) !important;
+      min-height: 44px !important;
+      padding: 4px 10px !important;
+      margin-top: 6px !important;
+      resize: none !important;
+      text-align: center !important;
+      color: #fff0e4 !important;
+      font: italic 22px/1.3 Georgia, "Times New Roman", serif !important;
+      transform: none !important;
+      text-shadow: 0 4px 16px rgba(0,0,0,.35) !important;
+      overflow: hidden !important;
+    }
+
+    #s3 .ghost-input::placeholder {
+      color: rgba(255, 233, 210, .76) !important;
+      opacity: 1 !important;
+      font-style: italic !important;
+    }
+
+    #s3 .ghost-input:focus {
+      outline: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    @media (max-width: 560px) {
+      #s3 .write-lead p {
+        padding: 12px 14px !important;
+        font-size: 16px !important;
+        line-height: 1.34 !important;
+      }
+
+      #s3 .ghost-input {
+        font-size: 19px !important;
+        min-height: 40px !important;
+        margin-top: 4px !important;
+      }
+    }
+
+  
+    /* Burn scene cleanup: remove extra plaque/backing */
+    #s4 .burn-wrap::before,
+    #s4 .burn-wrap::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    #s4 .overlay {
+      background:
+        radial-gradient(circle at 50% 60%, rgba(255, 120, 34, .08) 0 12%, rgba(7, 3, 2, .18) 28%, rgba(7, 3, 2, .58) 72%, rgba(7, 3, 2, .78) 100%),
+        linear-gradient(180deg, rgba(4, 2, 1, .44), rgba(4, 2, 1, .60)) !important;
+    }
+
+    /* Make the burning paper image smaller so edge animation is visible */
+    #s4 .bg {
+      background-size: min(620px, 76vw) auto !important;
+      background-position: center 58% !important;
+      background-color: #0a0503 !important;
+    }
+
+    /* Strong visible edge burn */
+    .burn-stage {
+      position: relative !important;
+      width: 100% !important;
+      height: min(62vh, 760px) !important;
+      overflow: visible !important;
+    }
+
+    .burn-edge {
+      position: absolute;
+      left: 50%;
+      top: 58%;
+      width: min(455px, 71vw);
+      height: min(235px, 21.5vh);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0;
+      border-radius: 18px;
+    }
+
+    .burn-edge::before,
+    .burn-edge::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .burn-edge::before {
+      inset: -10px;
+      background:
+        repeating-linear-gradient(90deg,
+          rgba(255, 212, 126, .98) 0 8px,
+          rgba(255, 126, 28, .98) 8px 18px,
+          rgba(255, 92, 16, .92) 18px 26px,
+          rgba(255, 200, 110, .88) 26px 34px) top / 100% 12px no-repeat,
+        repeating-linear-gradient(90deg,
+          rgba(255, 212, 126, .98) 0 8px,
+          rgba(255, 126, 28, .98) 8px 18px,
+          rgba(255, 92, 16, .92) 18px 26px,
+          rgba(255, 200, 110, .88) 26px 34px) bottom / 100% 12px no-repeat,
+        repeating-linear-gradient(180deg,
+          rgba(255, 212, 126, .98) 0 8px,
+          rgba(255, 126, 28, .98) 8px 18px,
+          rgba(255, 92, 16, .92) 18px 26px,
+          rgba(255, 200, 110, .88) 26px 34px) left / 12px 100% no-repeat,
+        repeating-linear-gradient(180deg,
+          rgba(255, 212, 126, .98) 0 8px,
+          rgba(255, 126, 28, .98) 8px 18px,
+          rgba(255, 92, 16, .92) 18px 26px,
+          rgba(255, 200, 110, .88) 26px 34px) right / 12px 100% no-repeat;
+      filter: blur(4px);
+      mix-blend-mode: screen;
+      box-shadow:
+        0 0 18px rgba(255, 126, 28, .75),
+        0 0 42px rgba(255, 92, 16, .58);
+    }
+
+    .burn-edge::after {
+      inset: -16px;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(255,228,155,.98) 0 6px, rgba(255,118,24,.86) 7px 18px, transparent 19px),
+        radial-gradient(circle at 25% 1%, rgba(255,220,148,.94) 0 5px, rgba(255,116,24,.82) 6px 16px, transparent 17px),
+        radial-gradient(circle at 50% 0%, rgba(255,220,148,.96) 0 6px, rgba(255,116,24,.84) 7px 18px, transparent 19px),
+        radial-gradient(circle at 76% 2%, rgba(255,220,148,.94) 0 5px, rgba(255,116,24,.82) 6px 16px, transparent 17px),
+        radial-gradient(circle at 92% 10%, rgba(255,228,155,.98) 0 6px, rgba(255,118,24,.86) 7px 18px, transparent 19px),
+
+        radial-gradient(circle at 5% 92%, rgba(255,228,155,.98) 0 6px, rgba(255,118,24,.86) 7px 18px, transparent 19px),
+        radial-gradient(circle at 30% 100%, rgba(255,220,148,.94) 0 5px, rgba(255,116,24,.82) 6px 16px, transparent 17px),
+        radial-gradient(circle at 55% 100%, rgba(255,220,148,.96) 0 6px, rgba(255,116,24,.84) 7px 18px, transparent 19px),
+        radial-gradient(circle at 80% 98%, rgba(255,220,148,.94) 0 5px, rgba(255,116,24,.82) 6px 16px, transparent 17px),
+        radial-gradient(circle at 95% 90%, rgba(255,228,155,.98) 0 6px, rgba(255,118,24,.86) 7px 18px, transparent 19px),
+
+        radial-gradient(circle at 0% 24%, rgba(255,228,155,.96) 0 6px, rgba(255,118,24,.84) 7px 18px, transparent 19px),
+        radial-gradient(circle at 0% 50%, rgba(255,220,148,.94) 0 5px, rgba(255,116,24,.82) 6px 16px, transparent 17px),
+        radial-gradient(circle at 0% 76%, rgba(255,228,155,.96) 0 6px, rgba(255,118,24,.84) 7px 18px, transparent 19px),
+
+        radial-gradient(circle at 100% 26%, rgba(255,228,155,.96) 0 6px, rgba(255,118,24,.84) 7px 18px, transparent 19px),
+        radial-gradient(circle at 100% 53%, rgba(255,220,148,.94) 0 5px, rgba(255,116,24,.82) 6px 16px, transparent 17px),
+        radial-gradient(circle at 100% 78%, rgba(255,228,155,.96) 0 6px, rgba(255,118,24,.84) 7px 18px, transparent 19px);
+      filter: blur(2px);
+      mix-blend-mode: screen;
+    }
+
+    .burning .burn-edge {
+      opacity: 1;
+      animation: edgeVisible 3.8s ease forwards;
+    }
+
+    .burning .burn-edge::before {
+      animation: edgeFlicker 220ms infinite alternate, edgeSpread 3.8s ease forwards;
+    }
+
+    .burning .burn-edge::after {
+      animation: edgeFlicker 180ms infinite alternate-reverse, edgeSpread 3.8s ease forwards;
+    }
+
+    @keyframes edgeVisible {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.88); }
+      12%  { opacity: 1; transform: translate(-50%, -50%) scale(.98); }
+      65%  { opacity: 1; transform: translate(-50%, -50%) scale(1.02); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.08); }
+    }
+
+    @keyframes edgeFlicker {
+      from { filter: blur(3px) brightness(1); }
+      to   { filter: blur(5px) brightness(1.25); }
+    }
+
+    @keyframes edgeSpread {
+      0%   { opacity: .3; }
+      14%  { opacity: 1; }
+      70%  { opacity: .95; }
+      100% { opacity: 0; }
+    }
+
+    @media (max-width: 560px) {
+      #s4 .bg {
+        background-size: 74vw auto !important;
+        background-position: center 57% !important;
+      }
+
+      .burn-edge {
+        top: 58%;
+        width: 69vw;
+        height: 16.5vh;
+      }
+    }
+
+  
+    /* New fast flame-burn: not dots/lanterns, actual flame strips */
+    .burn-edge {
+      display: none !important;
+    }
+
+    .flame-burn {
+      display: block !important;
+      position: absolute !important;
+      left: 50% !important;
+      top: 58% !important;
+      width: min(455px, 71vw) !important;
+      height: min(235px, 21.5vh) !important;
+      transform: translate(-50%, -50%) !important;
+      pointer-events: none !important;
+      z-index: 7 !important;
+      opacity: 1 !important;
+      border-radius: 18px !important;
+      overflow: visible !important;
+    }
+
+    .flame-burn::before,
+    .flame-burn::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .flame-strip {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      filter: blur(.2px) drop-shadow(0 0 18px rgba(255, 94, 18, .95));
+      background:
+        radial-gradient(ellipse at 10% 85%, rgba(255, 238, 170, .95) 0 8%, rgba(255, 152, 34, .98) 18%, rgba(207, 42, 12, .78) 42%, transparent 66%),
+        radial-gradient(ellipse at 26% 75%, rgba(255, 235, 160, .9) 0 8%, rgba(255, 132, 28, .98) 20%, rgba(190, 34, 10, .72) 44%, transparent 68%),
+        radial-gradient(ellipse at 44% 82%, rgba(255, 238, 170, .95) 0 8%, rgba(255, 152, 34, .98) 18%, rgba(207, 42, 12, .78) 42%, transparent 66%),
+        radial-gradient(ellipse at 63% 72%, rgba(255, 235, 160, .9) 0 8%, rgba(255, 132, 28, .98) 20%, rgba(190, 34, 10, .72) 44%, transparent 68%),
+        radial-gradient(ellipse at 83% 84%, rgba(255, 238, 170, .95) 0 8%, rgba(255, 152, 34, .98) 18%, rgba(207, 42, 12, .78) 42%, transparent 66%);
+    }
+
+    .flame-top,
+    .flame-bottom {
+      left: -8%;
+      width: 116%;
+      height: 58px;
+    }
+
+    .flame-top {
+      top: -28px;
+      transform-origin: center bottom;
+      clip-path: polygon(0 100%, 5% 55%, 10% 100%, 16% 35%, 22% 100%, 30% 45%, 38% 100%, 47% 28%, 56% 100%, 66% 38%, 74% 100%, 83% 48%, 91% 100%, 100% 58%, 100% 100%);
+    }
+
+    .flame-bottom {
+      bottom: -28px;
+      transform-origin: center top;
+      transform: scaleY(-1);
+      clip-path: polygon(0 100%, 5% 55%, 10% 100%, 16% 35%, 22% 100%, 30% 45%, 38% 100%, 47% 28%, 56% 100%, 66% 38%, 74% 100%, 83% 48%, 91% 100%, 100% 58%, 100% 100%);
+    }
+
+    .flame-left,
+    .flame-right {
+      top: -8%;
+      height: 116%;
+      width: 58px;
+      background:
+        radial-gradient(ellipse at 85% 10%, rgba(255, 238, 170, .95) 0 8%, rgba(255, 152, 34, .98) 18%, rgba(207, 42, 12, .78) 42%, transparent 66%),
+        radial-gradient(ellipse at 75% 28%, rgba(255, 235, 160, .9) 0 8%, rgba(255, 132, 28, .98) 20%, rgba(190, 34, 10, .72) 44%, transparent 68%),
+        radial-gradient(ellipse at 82% 48%, rgba(255, 238, 170, .95) 0 8%, rgba(255, 152, 34, .98) 18%, rgba(207, 42, 12, .78) 42%, transparent 66%),
+        radial-gradient(ellipse at 72% 66%, rgba(255, 235, 160, .9) 0 8%, rgba(255, 132, 28, .98) 20%, rgba(190, 34, 10, .72) 44%, transparent 68%),
+        radial-gradient(ellipse at 84% 86%, rgba(255, 238, 170, .95) 0 8%, rgba(255, 152, 34, .98) 18%, rgba(207, 42, 12, .78) 42%, transparent 66%);
+      clip-path: polygon(100% 0, 52% 5%, 100% 10%, 34% 18%, 100% 25%, 44% 35%, 100% 45%, 30% 55%, 100% 66%, 42% 78%, 100% 88%, 58% 100%, 100% 100%);
+    }
+
+    .flame-left {
+      left: -30px;
+      transform-origin: right center;
+    }
+
+    .flame-right {
+      right: -30px;
+      transform: scaleX(-1);
+      transform-origin: left center;
+    }
+
+    .burning .flame-strip {
+      animation:
+        fastFireIn 1.65s ease-out forwards,
+        flameShake 105ms ease-in-out infinite alternate;
+    }
+
+    .burning .flame-top { animation-delay: 0ms, 0ms; }
+    .burning .flame-bottom { animation-delay: 60ms, 0ms; }
+    .burning .flame-left { animation-delay: 120ms, 0ms; }
+    .burning .flame-right { animation-delay: 160ms, 0ms; }
+
+    .burning .burn-paper-title,
+    .burning .burn-paper-text {
+      animation: fastTextBurn 1.75s ease-in forwards !important;
+    }
+
+    @keyframes fastFireIn {
+      0%   { opacity: 0; filter: blur(7px) brightness(.9); }
+      12%  { opacity: 1; filter: blur(2px) brightness(1.28); }
+      48%  { opacity: 1; filter: blur(1px) brightness(1.38); }
+      78%  { opacity: .86; filter: blur(4px) brightness(1.05); }
+      100% { opacity: 0; filter: blur(12px) brightness(.55); }
+    }
+
+    @keyframes flameShake {
+      from { background-position: 0 0; filter: blur(.2px) drop-shadow(0 0 16px rgba(255, 94, 18, .90)) brightness(1); }
+      to   { background-position: 12px -8px; filter: blur(1.4px) drop-shadow(0 0 28px rgba(255, 125, 35, 1)) brightness(1.22); }
+    }
+
+    @keyframes fastTextBurn {
+      0% {
+        opacity: 1;
+        color: #2b1a0f;
+        filter: brightness(1) contrast(1);
+      }
+      28% {
+        opacity: .9;
+        color: #321006;
+        filter: brightness(.74) contrast(1.55);
+        text-shadow: 0 0 6px rgba(255, 115, 24, .38);
+      }
+      58% {
+        opacity: .38;
+        color: #080302;
+        filter: blur(1px) brightness(.45) contrast(1.7);
+      }
+      100% {
+        opacity: 0;
+        color: #030101;
+        filter: blur(5px) brightness(.18);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .flame-burn {
+        top: 58% !important;
+        width: 69vw !important;
+        height: 16.5vh !important;
+      }
+
+      .flame-top,
+      .flame-bottom {
+        height: 44px;
+      }
+
+      .flame-top { top: -22px; }
+      .flame-bottom { bottom: -22px; }
+
+      .flame-left,
+      .flame-right {
+        width: 44px;
+      }
+
+      .flame-left { left: -22px; }
+      .flame-right { right: -22px; }
+    }
+
+  
+    /* Smooth fire animation: no triangles, no lantern-like dots */
+    .burn-edge,
+    .flame-burn,
+    .flame-strip {
+      display: none !important;
+      opacity: 0 !important;
+      animation: none !important;
+    }
+
+    .smooth-burn {
+      position: absolute;
+      left: 50%;
+      top: 58%;
+      width: min(480px, 73vw);
+      height: min(255px, 23vh);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 6;
+      opacity: 0;
+      border-radius: 24px;
+      overflow: visible;
+      mix-blend-mode: screen;
+    }
+
+    .smooth-burn::before,
+    .smooth-burn::after {
+      content: "";
+      position: absolute;
+      inset: -18%;
+      border-radius: 32px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* soft edge heat */
+    .smooth-burn::before {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 238, 176, .85) 0 5%, rgba(255, 153, 52, .55) 18%, rgba(255, 93, 28, .28) 36%, transparent 62%),
+        radial-gradient(ellipse at 50% 100%, rgba(255, 238, 176, .78) 0 5%, rgba(255, 153, 52, .50) 18%, rgba(255, 93, 28, .24) 36%, transparent 62%),
+        radial-gradient(ellipse at 0% 50%, rgba(255, 226, 155, .72) 0 5%, rgba(255, 137, 43, .44) 18%, rgba(255, 88, 27, .24) 34%, transparent 60%),
+        radial-gradient(ellipse at 100% 50%, rgba(255, 226, 155, .72) 0 5%, rgba(255, 137, 43, .44) 18%, rgba(255, 88, 27, .24) 34%, transparent 60%);
+      filter: blur(16px);
+    }
+
+    /* moving flame glow, smooth blobs */
+    .smooth-burn::after {
+      inset: -26%;
+      background:
+        radial-gradient(ellipse at 18% 42%, rgba(255, 238, 170, .88) 0 4%, rgba(255, 143, 35, .66) 11%, rgba(209, 54, 14, .32) 25%, transparent 44%),
+        radial-gradient(ellipse at 38% 24%, rgba(255, 232, 155, .72) 0 4%, rgba(255, 128, 31, .58) 12%, rgba(207, 42, 12, .28) 27%, transparent 48%),
+        radial-gradient(ellipse at 63% 30%, rgba(255, 238, 170, .82) 0 4%, rgba(255, 143, 35, .62) 11%, rgba(209, 54, 14, .30) 25%, transparent 46%),
+        radial-gradient(ellipse at 82% 50%, rgba(255, 232, 155, .78) 0 4%, rgba(255, 128, 31, .60) 12%, rgba(207, 42, 12, .28) 27%, transparent 48%),
+        radial-gradient(ellipse at 50% 85%, rgba(255, 222, 136, .65) 0 6%, rgba(255, 106, 28, .42) 18%, transparent 48%);
+      filter: blur(10px);
+    }
+
+    .burning .smooth-burn {
+      opacity: 1;
+      animation: smoothBurnFade 2.25s ease-in-out forwards;
+    }
+
+    .burning .smooth-burn::before {
+      opacity: 1;
+      animation: smoothHeatEdge 2.25s ease-in-out forwards;
+    }
+
+    .burning .smooth-burn::after {
+      opacity: 1;
+      animation: smoothFlameMove 2.25s ease-in-out forwards;
+    }
+
+    .burning .burn-paper-title,
+    .burning .burn-paper-text {
+      animation: smoothTextAsh 2.15s ease-in forwards !important;
+    }
+
+    @keyframes smoothBurnFade {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.92); }
+      12%  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      62%  { opacity: .98; transform: translate(-50%, -50%) scale(1.04); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.12); }
+    }
+
+    @keyframes smoothHeatEdge {
+      0%   { opacity: 0; filter: blur(22px) brightness(.9); transform: scale(.9); }
+      18%  { opacity: 1; filter: blur(15px) brightness(1.18); transform: scale(1); }
+      58%  { opacity: .95; filter: blur(18px) brightness(1.28); transform: scale(1.08); }
+      100% { opacity: 0; filter: blur(28px) brightness(.62); transform: scale(1.2); }
+    }
+
+    @keyframes smoothFlameMove {
+      0%   { opacity: 0; transform: translateY(10px) scale(.92); filter: blur(14px) brightness(.92); }
+      14%  { opacity: .95; transform: translateY(0) scale(1); filter: blur(9px) brightness(1.12); }
+      40%  { opacity: 1; transform: translateY(-8px) scale(1.04); filter: blur(10px) brightness(1.28); }
+      72%  { opacity: .72; transform: translateY(-18px) scale(1.12); filter: blur(16px) brightness(1.05); }
+      100% { opacity: 0; transform: translateY(-30px) scale(1.22); filter: blur(28px) brightness(.55); }
+    }
+
+    @keyframes smoothTextAsh {
+      0% {
+        opacity: 1;
+        color: #2b1a0f;
+        filter: brightness(1) contrast(1);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      32% {
+        opacity: .88;
+        color: #351508;
+        filter: brightness(.70) contrast(1.45);
+        text-shadow: 0 0 10px rgba(255, 122, 30, .32);
+      }
+      68% {
+        opacity: .35;
+        color: #080302;
+        filter: blur(1.2px) brightness(.42) contrast(1.7);
+        transform: translate(-50%, -53%) scale(.96);
+      }
+      100% {
+        opacity: 0;
+        color: #030101;
+        filter: blur(5px) brightness(.16);
+        transform: translate(-50%, -60%) scale(.88);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .smooth-burn {
+        width: 70vw;
+        height: 18vh;
+        top: 58%;
+      }
+    }
+
+  
+    /* Uploaded video fire transition */
+    .smooth-burn,
+    .burn-edge,
+    .flame-burn,
+    .flame-strip {
+      display: none !important;
+      opacity: 0 !important;
+      animation: none !important;
+    }
+
+    .burn-video {
+      position: absolute;
+      left: 50%;
+      top: 58%;
+      width: min(520px, 78vw);
+      height: auto;
+      transform: translate(-50%, -50%);
+      z-index: 8;
+      opacity: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      filter: brightness(1.08) contrast(1.08) saturate(1.05);
+      border-radius: 18px;
+      transition: opacity .22s ease;
+    }
+
+    .burning .burn-video {
+      opacity: 1;
+    }
+
+    .burning .burn-paper-title,
+    .burning .burn-paper-text {
+      animation: videoTextBurn 2.15s ease-in forwards !important;
+    }
+
+    @keyframes videoTextBurn {
+      0% {
+        opacity: 1;
+        color: #2b1a0f;
+        filter: brightness(1) contrast(1);
+      }
+      34% {
+        opacity: .9;
+        color: #301208;
+        filter: brightness(.72) contrast(1.45);
+        text-shadow: 0 0 10px rgba(255, 122, 30, .32);
+      }
+      70% {
+        opacity: .35;
+        color: #080302;
+        filter: blur(1.2px) brightness(.42) contrast(1.7);
+      }
+      100% {
+        opacity: 0;
+        color: #030101;
+        filter: blur(5px) brightness(.16);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .burn-video {
+        width: 82vw;
+        top: 58%;
+      }
+    }
+
+  
+    /* Chroma-keyed fire video: remove green background and make it sit on paper */
+    .burn-video,
+    .burn-video-source {
+      display: none !important;
+    }
+
+    .burn-canvas {
+      position: absolute;
+      left: 50%;
+      top: 58%;
+      width: min(470px, 74vw);
+      height: min(245px, 23vh);
+      transform: translate(-50%, -50%);
+      z-index: 8;
+      opacity: 0;
+      pointer-events: none;
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      border-radius: 18px;
+      mix-blend-mode: normal;
+      filter: brightness(1.08) contrast(1.08) saturate(1.05);
+      transition: opacity .16s ease;
+    }
+
+    .burning .burn-canvas {
+      opacity: 1;
+    }
+
+    /* Paper-sized invisible frame so the video follows the paper, not a black rectangle */
+    #s4 .burn-stage {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    @media (max-width: 560px) {
+      .burn-canvas {
+        width: 74vw;
+        height: 17vh;
+        top: 58%;
+      }
+    }
+
+  
+    /* Final fire-video placement: raised, chromakeyed, duplicated around edges */
+    .burn-video,
+    .burn-video-source {
+      display: none !important;
+    }
+
+    .burn-canvas.fire-layer {
+      position: absolute !important;
+      left: 50% !important;
+      top: 50% !important; /* raised from previous 58% */
+      width: min(520px, 78vw) !important;
+      height: auto !important;
+      z-index: 9 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      mix-blend-mode: screen !important;
+      filter: brightness(1.16) contrast(1.18) saturate(1.10) !important;
+      transition: opacity .12s ease !important;
+    }
+
+    .burning .burn-canvas.fire-layer {
+      opacity: 1 !important;
+    }
+
+    /* Use the same fire transition as edge strips rotated around the sheet */
+    .burn-canvas.fire-top {
+      transform: translate(-50%, -50%) rotate(0deg) !important;
+      clip-path: inset(0 0 48% 0 round 10px) !important;
+    }
+
+    .burn-canvas.fire-right {
+      transform: translate(-50%, -50%) rotate(90deg) !important;
+      clip-path: inset(0 0 48% 0 round 10px) !important;
+    }
+
+    .burn-canvas.fire-bottom {
+      transform: translate(-50%, -50%) rotate(180deg) !important;
+      clip-path: inset(0 0 48% 0 round 10px) !important;
+    }
+
+    .burn-canvas.fire-left {
+      transform: translate(-50%, -50%) rotate(270deg) !important;
+      clip-path: inset(0 0 48% 0 round 10px) !important;
+    }
+
+    /* Remove any old glowing boxes/frames behind the burn scene */
+    #s4 .burn-wrap::before,
+    #s4 .burn-wrap::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    #s4 .burn-stage {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      overflow: visible !important;
+    }
+
+    #s4 .bg {
+      background-size: min(650px, 78vw) auto !important;
+      background-position: center 50% !important;
+      background-color: #0a0503 !important;
+    }
+
+    #s4 .overlay {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 120, 34, .08) 0 12%, rgba(7, 3, 2, .16) 28%, rgba(7, 3, 2, .56) 72%, rgba(7, 3, 2, .78) 100%),
+        linear-gradient(180deg, rgba(4, 2, 1, .42), rgba(4, 2, 1, .58)) !important;
+    }
+
+    @media (max-width: 560px) {
+      .burn-canvas.fire-layer {
+        top: 49% !important;
+        width: 88vw !important;
+      }
+
+      #s4 .bg {
+        background-size: 82vw auto !important;
+        background-position: center 50% !important;
+      }
+    }
+
+  
+    /* Align text with raised burning video */
+    .burn-paper-title {
+      top: 40% !important;
+    }
+
+    .burn-paper-text {
+      top: 53% !important;
+    }
+
+    @media (max-width: 560px) {
+      .burn-paper-title {
+        top: 39% !important;
+      }
+
+      .burn-paper-text {
+        top: 53% !important;
+      }
+    }
+
+  
+    /* Single fast burn strip aligned to the paper */
+    .burn-canvas.fire-layer {
+      display: none !important;
+    }
+
+    .burn-canvas.burn-strip {
+      position: absolute !important;
+      left: 50% !important;
+      top: 44.2% !important;
+      width: min(470px, 56vw) !important;
+      height: 110px !important;
+      transform: translate(-50%, -50%) !important;
+      z-index: 10 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      mix-blend-mode: screen !important;
+      filter: brightness(1.18) contrast(1.2) saturate(1.08) !important;
+      transition: opacity .08s linear !important;
+      clip-path: inset(0 0 42% 0) !important;
+    }
+
+    .burning .burn-canvas.burn-strip {
+      opacity: 1 !important;
+    }
+
+    /* Remove any old box-like helpers around burn scene */
+    #s4 .burn-wrap::before,
+    #s4 .burn-wrap::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    #s4 .burn-stage {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      overflow: visible !important;
+      height: min(60vh, 700px) !important;
+    }
+
+    /* Paper image sizing */
+    #s4 .bg {
+      background-size: min(660px, 78vw) auto !important;
+      background-position: center 51% !important;
+      background-color: #0a0503 !important;
+    }
+
+    .burn-paper-title {
+      top: 41% !important;
+    }
+
+    .burn-paper-text {
+      top: 54% !important;
+    }
+
+    @media (max-width: 560px) {
+      .burn-canvas.burn-strip {
+        top: 44.8% !important;
+        width: 67vw !important;
+        height: 82px !important;
+        clip-path: inset(0 0 46% 0) !important;
+      }
+
+      #s4 .bg {
+        background-size: 80vw auto !important;
+        background-position: center 51% !important;
+      }
+
+      .burn-paper-title {
+        top: 41% !important;
+      }
+
+      .burn-paper-text {
+        top: 54% !important;
+      }
+    }
+
+  
+    /* Match the fire video exactly to the paper size */
+    #s4 .bg {
+      background-size: min(660px, 78vw) auto !important;
+      background-position: center 51% !important;
+    }
+
+    .burn-canvas.burn-strip {
+      /* same visual width and center as the background paper */
+      left: 50% !important;
+      top: 51% !important;
+      width: min(660px, 78vw) !important;
+      height: auto !important;
+      transform: translate(-50%, -50%) !important;
+      z-index: 10 !important;
+      opacity: 0 !important;
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      mix-blend-mode: screen !important;
+      filter: brightness(1.14) contrast(1.18) saturate(1.08) !important;
+
+      /* show the burning upper part of the video, but keep it scaled to the whole sheet */
+      clip-path: inset(0 0 34% 0) !important;
+    }
+
+    .burning .burn-canvas.burn-strip {
+      opacity: 1 !important;
+    }
+
+    .burn-paper-title {
+      top: 43% !important;
+    }
+
+    .burn-paper-text {
+      top: 55% !important;
+    }
+
+    @media (max-width: 560px) {
+      #s4 .bg {
+        background-size: 82vw auto !important;
+        background-position: center 51% !important;
+      }
+
+      .burn-canvas.burn-strip {
+        width: 82vw !important;
+        top: 51% !important;
+        clip-path: inset(0 0 36% 0) !important;
+      }
+
+      .burn-paper-title {
+        top: 43% !important;
+      }
+
+      .burn-paper-text {
+        top: 55% !important;
+      }
+    }
+
+  
+    /* Video removed: clean text burn without mp4/canvas */
+    .burn-video,
+    .burn-video-source,
+    .burn-canvas,
+    .smooth-burn,
+    .burn-edge,
+    .flame-burn,
+    .flame-strip {
+      display: none !important;
+      opacity: 0 !important;
+      animation: none !important;
+    }
+
+    #s4 .burn-wrap::before,
+    #s4 .burn-wrap::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    #s4 .bg {
+      background-size: min(660px, 78vw) auto !important;
+      background-position: center 51% !important;
+      background-color: #0a0503 !important;
+    }
+
+    #s4 .overlay {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 120, 34, .10) 0 12%, rgba(7, 3, 2, .18) 32%, rgba(7, 3, 2, .58) 72%, rgba(7, 3, 2, .80) 100%),
+        linear-gradient(180deg, rgba(4, 2, 1, .42), rgba(4, 2, 1, .60)) !important;
+    }
+
+    #s4 .burn-stage {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      overflow: visible !important;
+    }
+
+    .burning .burn-paper-title,
+    .burning .burn-paper-text {
+      animation: cleanTextBurn 1.65s ease-in forwards !important;
+    }
+
+    @keyframes cleanTextBurn {
+      0% {
+        opacity: 1;
+        color: #2b1a0f;
+        filter: brightness(1) contrast(1);
+      }
+      35% {
+        opacity: .82;
+        color: #351508;
+        filter: brightness(.72) contrast(1.45);
+        text-shadow: 0 0 12px rgba(255, 122, 30, .32);
+      }
+      70% {
+        opacity: .30;
+        color: #080302;
+        filter: blur(1.4px) brightness(.42) contrast(1.7);
+      }
+      100% {
+        opacity: 0;
+        color: #030101;
+        filter: blur(5px) brightness(.16);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1050,6 +2169,7 @@
     const burnText = document.getElementById('burnText');
     const burnStage = document.getElementById('burnStage');
 
+
     function show(id) {
       screens.forEach(s => s.classList.toggle('active', s.id === id));
       window.scrollTo({top:0, behavior:'smooth'});
@@ -1069,19 +2189,20 @@
     burnBtn.addEventListener('click', () => {
       const val = input.value.trim();
       if (!val) return;
+
       burnText.textContent = val;
       show('s4');
 
       setTimeout(() => {
         burnStage.classList.add('burning');
-        spawnEmbers(130, true);
-        spawnAsh(42);
-      }, 240);
+        spawnEmbers(55, true);
+        if (typeof spawnAsh === 'function') spawnAsh(18);
+      }, 160);
 
       setTimeout(() => {
         burnStage.classList.remove('burning');
         show('s5');
-      }, 5600);
+      }, 2300);
     });
 
     function spawnEmbers(count=26, burst=false) {
@@ -1113,8 +2234,7 @@
         setTimeout(() => e.remove(), 7200);
       }
     }
-
-    const target = new Date('2026-11-17T00:00:00+03:00').getTime();
+const target = new Date('2026-11-17T00:00:00+03:00').getTime();
     function pad(n) { return String(n).padStart(2, '0'); }
     function tick() {
       const diff = target - Date.now();
