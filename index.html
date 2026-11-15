@@ -2528,6 +2528,263 @@
       }
     }
 
+  
+    /* ===== FINAL MOBILE REPAIR: scene 2 input, burn scene edges, final timer ===== */
+
+    /* Scene 2: keep the writing inside the parchment and fix button size */
+    @media (max-width: 560px) {
+      #s3 .write-wrap {
+        min-height: calc(100svh - 32px) !important;
+        padding-top: 28px !important;
+        align-content: start !important;
+        gap: 10px !important;
+      }
+
+      #s3 .write-lead {
+        max-width: 92vw !important;
+        padding: 0 !important;
+        margin: 0 auto 6px !important;
+      }
+
+      #s3 .write-lead h2 {
+        font-size: 42px !important;
+        line-height: .94 !important;
+        margin-bottom: 12px !important;
+      }
+
+      #s3 .write-lead p {
+        max-width: 88vw !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        color: rgba(255,244,232,.96) !important;
+        font-size: 16px !important;
+        line-height: 1.28 !important;
+        text-align: center !important;
+        text-shadow: 0 4px 16px rgba(0,0,0,.48) !important;
+      }
+
+      /* Invisible safe writing area: lower it inside the actual paper image */
+      #s3 .paper-stage {
+        width: 68vw !important;
+        height: 118px !important;
+        margin: 34px auto 8px !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        outline: none !important;
+        clip-path: none !important;
+        transform: none !important;
+        overflow: visible !important;
+        display: grid !important;
+        place-items: center !important;
+      }
+
+      #s3 .paper-stage::before,
+      #s3 .paper-stage::after {
+        display: none !important;
+        content: none !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        width: 100% !important;
+        min-height: 78px !important;
+        max-height: 78px !important;
+        padding: 0 4px !important;
+        margin: 0 !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        resize: none !important;
+        overflow: hidden !important;
+        color: #2f1d10 !important;
+        text-align: center !important;
+        font: italic 23px/1.08 Georgia, "Times New Roman", serif !important;
+        text-shadow: 0 1px 0 rgba(255,255,255,.16) !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input::placeholder {
+        color: rgba(64,41,24,.42) !important;
+        opacity: 1 !important;
+        font: italic 17px/1.08 Georgia, "Times New Roman", serif !important;
+        text-align: center !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input:focus {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
+      #s3 #burnBtn.button {
+        width: min(330px, 88vw) !important;
+        height: 58px !important;
+        min-width: 0 !important;
+        margin: 10px auto 0 !important;
+        padding: 0 22px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 999px !important;
+        font-size: 20px !important;
+        line-height: 1 !important;
+        background:
+          radial-gradient(circle at 50% 0, rgba(255,235,205,.38), transparent 48%),
+          linear-gradient(180deg, rgba(132,76,45,.92), rgba(184,100,50,.98)) !important;
+        border: 1px solid rgba(255,225,190,.76) !important;
+        box-shadow:
+          0 0 0 5px rgba(255,170,90,.10),
+          0 0 34px rgba(255,156,72,.36),
+          inset 0 1px rgba(255,255,255,.32) !important;
+        opacity: 1 !important;
+      }
+
+      #s3 #burnBtn.button:disabled {
+        opacity: .54 !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      #s3 .write-lead h2 {
+        font-size: 38px !important;
+      }
+
+      #s3 .paper-stage {
+        width: 70vw !important;
+        height: 108px !important;
+        margin-top: 26px !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input {
+        font-size: 21px !important;
+        max-height: 72px !important;
+        min-height: 72px !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input::placeholder {
+        font-size: 16px !important;
+      }
+    }
+
+    /* Scene 3 burn: no visible image edges on desktop or mobile */
+    #s4,
+    #s4 .bg {
+      background-color: #080402 !important;
+    }
+
+    #s4 .bg {
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+    }
+
+    #s4 .overlay {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,140,50,.06) 0 16%, rgba(14,8,5,.22) 34%, rgba(7,4,2,.58) 70%, rgba(3,2,1,.88) 100%),
+        linear-gradient(90deg, rgba(3,2,1,.96) 0%, rgba(3,2,1,.62) 8%, rgba(3,2,1,0) 18%, rgba(3,2,1,0) 82%, rgba(3,2,1,.62) 92%, rgba(3,2,1,.96) 100%),
+        linear-gradient(180deg, rgba(3,2,1,.55), rgba(3,2,1,.72)) !important;
+    }
+
+    /* Final screen: undo broken mobile grid and make ONLY timer one row */
+    @media (max-width: 560px) {
+      #s5 .final-wrap {
+        padding-top: 18px !important;
+        align-items: start !important;
+      }
+
+      #s5 .check {
+        width: 64px !important;
+        height: 64px !important;
+        font-size: 34px !important;
+        margin-bottom: 14px !important;
+      }
+
+      #s5 .final-text h2 {
+        font-size: 58px !important;
+        line-height: .9 !important;
+        margin-bottom: 18px !important;
+      }
+
+      #s5 .final-text p {
+        font-size: 23px !important;
+        line-height: 1.22 !important;
+        margin-bottom: 14px !important;
+      }
+
+      #s5 .countdown {
+        display: block !important;
+        width: calc(100vw - 34px) !important;
+        max-width: 680px !important;
+        margin: 24px auto 0 !important;
+        padding: 18px 14px !important;
+        border-radius: 24px !important;
+        text-align: center !important;
+        background: rgba(255, 243, 232, .34) !important;
+        border: 1px solid rgba(255,238,218,.56) !important;
+        box-shadow: 0 22px 58px rgba(0,0,0,.18) !important;
+        backdrop-filter: blur(16px) !important;
+      }
+
+      #s5 .count-head {
+        display: block !important;
+        text-align: center !important;
+        font-size: 22px !important;
+        line-height: 1.08 !important;
+        margin: 0 0 8px !important;
+      }
+
+      #s5 .count-head > span {
+        display: inline-block !important;
+        margin-right: 6px !important;
+      }
+
+      #s5 .count-head small {
+        display: block !important;
+        margin-top: 6px !important;
+        font-size: 14px !important;
+        line-height: 1.2 !important;
+      }
+
+      #s5 .count-sub {
+        margin-top: 12px !important;
+        padding-top: 12px !important;
+        font-size: 13px !important;
+      }
+
+      #s5 .timer {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+        margin-top: 12px !important;
+      }
+
+      #s5 .timer-box {
+        padding: 10px 3px !important;
+        border-radius: 14px !important;
+        min-width: 0 !important;
+      }
+
+      #s5 .timer-box b {
+        font-size: 24px !important;
+        line-height: 1 !important;
+      }
+
+      #s5 .timer-box span {
+        font-size: 10px !important;
+        line-height: 1 !important;
+        margin-top: 5px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
