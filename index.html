@@ -2785,6 +2785,189 @@
       }
     }
 
+  
+    /* ===== FINAL SCENE 2 MOBILE FIX: safe paper square + button below paper ===== */
+
+    @media (max-width: 560px) {
+      /* Keep the top text stable */
+      #s3 .write-wrap {
+        min-height: calc(100svh - 32px) !important;
+        padding-top: 30px !important;
+        align-content: start !important;
+        gap: 0 !important;
+      }
+
+      #s3 .write-lead {
+        max-width: 92vw !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+      }
+
+      #s3 .write-lead h2 {
+        font-size: 42px !important;
+        line-height: .94 !important;
+        margin-bottom: 12px !important;
+      }
+
+      #s3 .write-lead p {
+        max-width: 88vw !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        color: rgba(255,244,232,.96) !important;
+        font-size: 16px !important;
+        line-height: 1.28 !important;
+        text-align: center !important;
+        text-shadow: 0 4px 16px rgba(0,0,0,.48) !important;
+      }
+
+      /*
+        This invisible paper-stage is moved down to match the actual parchment on the background.
+        It represents the safe white-square area from the reference, but nothing is drawn.
+      */
+      #s3 .paper-stage {
+        width: 60vw !important;
+        height: 92px !important;
+        margin: 112px auto 0 !important;
+        padding: 0 !important;
+
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        outline: none !important;
+        clip-path: none !important;
+        transform: none !important;
+        overflow: visible !important;
+
+        display: grid !important;
+        place-items: center !important;
+      }
+
+      #s3 .paper-stage::before,
+      #s3 .paper-stage::after {
+        display: none !important;
+        content: none !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+
+        width: 100% !important;
+        min-height: 84px !important;
+        max-height: 84px !important;
+        padding: 0 2px !important;
+        margin: 0 !important;
+
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        resize: none !important;
+        overflow: hidden !important;
+
+        color: #2f1d10 !important;
+        text-align: center !important;
+        font: italic 22px/1.08 Georgia, "Times New Roman", serif !important;
+        text-shadow: 0 1px 0 rgba(255,255,255,.16) !important;
+        transform: none !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input::placeholder {
+        color: rgba(64,41,24,.42) !important;
+        opacity: 1 !important;
+        font: italic 16px/1.08 Georgia, "Times New Roman", serif !important;
+        text-align: center !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input:focus {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
+      /* Button: below the paper, smaller, warm and solid */
+      #s3 #burnBtn.button {
+        width: 250px !important;
+        max-width: 72vw !important;
+        height: 54px !important;
+        min-width: 0 !important;
+
+        margin: 78px auto 0 !important;
+        padding: 0 22px !important;
+
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        border-radius: 999px !important;
+        font-size: 18px !important;
+        line-height: 1 !important;
+        font-weight: 700 !important;
+        color: #fff8ef !important;
+
+        background:
+          radial-gradient(circle at 50% 0, rgba(255,235,205,.38), transparent 48%),
+          linear-gradient(180deg, rgba(132,76,45,.96), rgba(184,100,50,1)) !important;
+        border: 1px solid rgba(255,225,190,.82) !important;
+        box-shadow:
+          0 0 0 4px rgba(255,170,90,.10),
+          0 0 28px rgba(255,156,72,.34),
+          inset 0 1px rgba(255,255,255,.32) !important;
+        opacity: 1 !important;
+      }
+
+      #s3 #burnBtn.button:disabled {
+        opacity: .50 !important;
+        filter: none !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      #s3 .write-wrap {
+        padding-top: 24px !important;
+      }
+
+      #s3 .write-lead h2 {
+        font-size: 38px !important;
+      }
+
+      #s3 .write-lead p {
+        font-size: 15px !important;
+        line-height: 1.24 !important;
+      }
+
+      #s3 .paper-stage {
+        width: 62vw !important;
+        height: 82px !important;
+        margin-top: 96px !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input {
+        min-height: 76px !important;
+        max-height: 76px !important;
+        font-size: 20px !important;
+      }
+
+      #s3 textarea#phraseInput.paper-input::placeholder {
+        font-size: 15px !important;
+      }
+
+      #s3 #burnBtn.button {
+        width: 230px !important;
+        height: 52px !important;
+        margin-top: 66px !important;
+        font-size: 17px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
