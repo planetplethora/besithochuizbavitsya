@@ -2968,6 +2968,211 @@
       }
     }
 
+  
+    /* ===== HARD OVERRIDE: mobile scene 2 exact paper safe-zone and button below ===== */
+    @media (max-width: 560px) {
+      body #s3 .write-wrap {
+        min-height: 100svh !important;
+        padding-top: 30px !important;
+        display: grid !important;
+        grid-template-rows: auto auto auto !important;
+        align-content: start !important;
+        justify-items: center !important;
+        gap: 0 !important;
+      }
+
+      body #s3 .write-lead {
+        width: 92vw !important;
+        max-width: 92vw !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        text-align: center !important;
+      }
+
+      body #s3 .write-lead h2 {
+        font-size: 42px !important;
+        line-height: .94 !important;
+        margin: 0 0 14px !important;
+        padding: 0 !important;
+      }
+
+      body #s3 .write-lead p {
+        width: 88vw !important;
+        max-width: 88vw !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        color: rgba(255,244,232,.96) !important;
+        text-align: center !important;
+        font: 16px/1.28 Arial, sans-serif !important;
+        text-shadow: 0 4px 16px rgba(0,0,0,.48) !important;
+      }
+
+      /*
+        Invisible safe zone on the parchment.
+        This is aligned to the white rectangle reference, but the rectangle itself is not drawn.
+      */
+      body #s3 .paper-stage {
+        width: 60vw !important;
+        max-width: 60vw !important;
+        height: 92px !important;
+        min-height: 92px !important;
+        max-height: 92px !important;
+
+        margin-top: 160px !important;
+        margin-right: auto !important;
+        margin-bottom: 0 !important;
+        margin-left: auto !important;
+
+        padding: 0 !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        clip-path: none !important;
+        transform: none !important;
+        overflow: visible !important;
+
+        display: grid !important;
+        place-items: center !important;
+      }
+
+      body #s3 .paper-stage::before,
+      body #s3 .paper-stage::after {
+        display: none !important;
+        content: none !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+
+        display: block !important;
+        width: 100% !important;
+        height: 92px !important;
+        min-height: 92px !important;
+        max-height: 92px !important;
+
+        margin: 0 !important;
+        padding: 0 2px !important;
+
+        background: transparent !important;
+        background-color: transparent !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        resize: none !important;
+        overflow: hidden !important;
+
+        color: #2f1d10 !important;
+        text-align: center !important;
+        font: italic 22px/1.08 Georgia, "Times New Roman", serif !important;
+        text-shadow: 0 1px 0 rgba(255,255,255,.16) !important;
+        transform: none !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input::placeholder {
+        color: rgba(64,41,24,.42) !important;
+        opacity: 1 !important;
+        font: italic 16px/1.08 Georgia, "Times New Roman", serif !important;
+        text-align: center !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input:focus {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+      }
+
+      /* Button below the paper, smaller, solid, same mood as the first scene */
+      body #s3 #burnBtn.button {
+        width: 220px !important;
+        max-width: 64vw !important;
+        height: 50px !important;
+        min-width: 0 !important;
+
+        margin-top: 105px !important;
+        margin-right: auto !important;
+        margin-bottom: 0 !important;
+        margin-left: auto !important;
+
+        padding: 0 18px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        border-radius: 999px !important;
+        color: #fff8ef !important;
+        font: 700 17px/1 Arial, sans-serif !important;
+
+        background:
+          radial-gradient(circle at 50% 0, rgba(255,235,205,.38), transparent 48%),
+          linear-gradient(180deg, rgba(132,76,45,.96), rgba(184,100,50,1)) !important;
+        border: 1px solid rgba(255,225,190,.82) !important;
+        box-shadow:
+          0 0 0 4px rgba(255,170,90,.10),
+          0 0 28px rgba(255,156,72,.34),
+          inset 0 1px rgba(255,255,255,.32) !important;
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+      }
+
+      body #s3 #burnBtn.button:disabled {
+        opacity: .52 !important;
+        filter: none !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      body #s3 .write-wrap {
+        padding-top: 24px !important;
+      }
+
+      body #s3 .write-lead h2 {
+        font-size: 38px !important;
+      }
+
+      body #s3 .write-lead p {
+        font-size: 15px !important;
+        line-height: 1.24 !important;
+      }
+
+      body #s3 .paper-stage {
+        width: 62vw !important;
+        max-width: 62vw !important;
+        height: 82px !important;
+        min-height: 82px !important;
+        max-height: 82px !important;
+        margin-top: 146px !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input {
+        height: 82px !important;
+        min-height: 82px !important;
+        max-height: 82px !important;
+        font-size: 20px !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input::placeholder {
+        font-size: 15px !important;
+      }
+
+      body #s3 #burnBtn.button {
+        width: 210px !important;
+        height: 48px !important;
+        max-width: 62vw !important;
+        margin-top: 95px !important;
+        font-size: 16px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
