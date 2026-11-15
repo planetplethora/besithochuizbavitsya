@@ -3173,6 +3173,106 @@
       }
     }
 
+  
+    /* ===== MOBILE PAPER BIGGER + BURN TEXT SEPARATION ===== */
+
+    @media (max-width: 560px) {
+      /*
+        Scene 2: make the parchment visually larger on mobile.
+        The writing safe-zone moves with it and remains inside the "white square" area.
+      */
+      body #s3 .bg {
+        background-size: auto 108% !important;
+        background-position: center center !important;
+      }
+
+      body #s3 .paper-stage {
+        width: 66vw !important;
+        max-width: 66vw !important;
+        height: 106px !important;
+        min-height: 106px !important;
+        max-height: 106px !important;
+        margin-top: 142px !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input {
+        height: 96px !important;
+        min-height: 96px !important;
+        max-height: 96px !important;
+        font-size: 23px !important;
+        line-height: 1.08 !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input::placeholder {
+        font-size: 16px !important;
+        line-height: 1.08 !important;
+      }
+
+      /* Keep the already approved button below the bigger paper */
+      body #s3 #burnBtn.button {
+        margin-top: 118px !important;
+      }
+
+      /*
+        Burn scene: separate title and user's text.
+        User text is lower, so it doesn't overlap with "Я оставляю это в 2026:".
+      */
+      body #s4 .burn-paper-title {
+        top: 40% !important;
+        width: 78vw !important;
+        font-size: 23px !important;
+        line-height: 1.12 !important;
+        opacity: .88 !important;
+      }
+
+      body #s4 .burn-paper-text {
+        top: 56.5% !important;
+        width: 70vw !important;
+        font-size: 32px !important;
+        line-height: 1.08 !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      body #s3 .bg {
+        background-size: auto 110% !important;
+      }
+
+      body #s3 .paper-stage {
+        width: 68vw !important;
+        max-width: 68vw !important;
+        height: 98px !important;
+        min-height: 98px !important;
+        max-height: 98px !important;
+        margin-top: 130px !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input {
+        height: 88px !important;
+        min-height: 88px !important;
+        max-height: 88px !important;
+        font-size: 21px !important;
+      }
+
+      body #s3 textarea#phraseInput.paper-input::placeholder {
+        font-size: 15px !important;
+      }
+
+      body #s3 #burnBtn.button {
+        margin-top: 106px !important;
+      }
+
+      body #s4 .burn-paper-title {
+        top: 40% !important;
+        font-size: 21px !important;
+      }
+
+      body #s4 .burn-paper-text {
+        top: 57% !important;
+        font-size: 30px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
